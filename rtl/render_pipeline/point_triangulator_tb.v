@@ -1,4 +1,4 @@
-module within_triangle_tb;
+module point_triangulator_tb;
    parameter MAX_RESOLUTION_X = 1280;
    parameter MAX_RESOLUTION_Y = 720;
 
@@ -14,27 +14,27 @@ module within_triangle_tb;
    reg [$clog2(MAX_RESOLUTION_X)-1:0] input_point_x;
    reg [$clog2(MAX_RESOLUTION_Y)-1:0] input_point_y;
 
-   wire is_inside_triangle;
+   wire                               is_inside_triangle;
 
    reg [$clog2(MAX_RESOLUTION_Y)-1:0] end_row;
 
    defparam U0.MAX_RESOLUTION_X = MAX_RESOLUTION_X;
    defparam U0.MAX_RESOLUTION_Y = MAX_RESOLUTION_Y;
-   within_triangle U0 (
-                       .triangle_P1_x (triangle_P1_x),
-                       .triangle_P1_y (triangle_P1_y),
+   point_triangulator U0 (
+                          .triangle_P1_x (triangle_P1_x),
+                          .triangle_P1_y (triangle_P1_y),
 
-                       .triangle_P2_x (triangle_P2_x),
-                       .triangle_P2_y (triangle_P2_y),
+                          .triangle_P2_x (triangle_P2_x),
+                          .triangle_P2_y (triangle_P2_y),
 
-                       .triangle_P3_x (triangle_P3_x),
-                       .triangle_P3_y (triangle_P3_y),
+                          .triangle_P3_x (triangle_P3_x),
+                          .triangle_P3_y (triangle_P3_y),
 
-                       .input_point_x (input_point_x),
-                       .input_point_y (input_point_y),
+                          .input_point_x (input_point_x),
+                          .input_point_y (input_point_y),
 
-                       .is_inside_triangle (is_inside_triangle)
-);
+                          .is_inside_triangle (is_inside_triangle)
+                          );
 
 
    // The following 2 functions are based off of code for checking if a point is
@@ -196,4 +196,4 @@ module within_triangle_tb;
       $finish;
 
    end // initial begin
-endmodule // within_triangle_tb
+endmodule // point_triangulator_tb
